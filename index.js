@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 //     }
 // })
 
-// GET Profile Page
+// GET Profile Page 
 app.get('/profile', isLoggedIn, (req, res) => {
     res.render('profile')
 })
