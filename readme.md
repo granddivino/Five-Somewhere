@@ -62,4 +62,6 @@ sequelize db:migrate
 6. Add a `SESSION_SECRET` and `PORT` environment variables in a `.env` file (can be any string)
 
 ```
+
+```
 7. 

@@ -1,0 +1,10 @@
+<h1>Search Results</h1>
+
+<ul>
+    <% results.forEach(result => { %>
+        <li>
+            <%= result.drinks.strDrink %><a href="/results/<%= result.idDrink>">Read More</a>
+        </li>
+    <% }) %>
+</ul>
+
