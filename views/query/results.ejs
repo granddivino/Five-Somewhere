@@ -1,0 +1,27 @@
+<h1> Results for Drink Search </h1>
+<% results.forEach(function(drink){ %>
+    <li>
+                Drink:
+            <%=drink.strDrink%>
+        <br>
+            <h2><img src="<%=drink.strDrinkThumb%>" width="300"></h2>
+        <br>
+            Glass:
+            <%=drink.strGlass%>
+        <br>Ingredients:
+            <%=drink.strIngredients%>
+        <br>
+            Instructions:
+            <%=drink.strInstructions%>
+        <br>
+        <br>
+        <form method="POST" action="favorites/drinks">
+            <input type="hidden" name="name" value="<%=drink.strDrink%>">
+            <input type="hidden" name="ingredients" value="<%=drink.strIngredients%>">
+            <input type="hidden" name="instructions" value="<%=drink.strInstructions%>">
+            <input type="hidden"name="picture" value="<%=drink.strDrinkThumb%>">
+            <input type="hidden" value="Add to Favorites">
+        </form>
+        <br>
+        <br>
+        <% }) %>

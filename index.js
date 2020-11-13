@@ -40,46 +40,41 @@ app.use((req, res, next) => {
 
 //Use Controllers
 app.use('/auth', require('./controllers/auth.js'))
-app.use('/favorites', require('./controllers/favorites.js'))
 app.use('/forum', require('./controllers/forum.js'))
 
 
-// GET Home page
-app.get('/', (req, res) => {
+// GET Home Page 
+app.get('/', isLoggedIn, (req, res) => {
     res.render('home')
 })
-
-//GET results from search
-app.get('/homepage/results', (req, res) => {
-    let drink = req.query.drink
-    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
-    .then (response => {
-        console.log(response.data)
-    //    res.send(response.data)
-    res.render('homepage/results', {results: response.data.Search})
-    })
-})
-
-// show (info about one particular drink)
-app.get('/:idDrink', (req, res)=>{
-    let drinkId = req.params.drinkId
-    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkId}`)
-    .then(response=>{
-        console.log(response.data)
-        res.render('homepage/show', {drinks: response.data})
-    })
-})
-
 
 // GET Favorites Page 
 app.get('/favorites/drinks', isLoggedIn, (req, res) => {
     res.render('favorites/drinks')
 })
 
-// GET Home Page 
-app.get('/homepage/homepage', isLoggedIn, (req, res) => {
-    res.render('homepage/homepage')
+
+//GET results from search
+app.get('/query/results', (req, res) => {
+    let drink = req.query.drink
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+    .then(response => {
+        let results = response.data.drinks
+        res.render('query/results.ejs', {results: results})
+    // res.render('query/results.ejs', {results: response.data.Search})
+    })
 })
+
+// Show query results
+app.get('/:id', (req, res)=>{
+    let drinkId = req.params.drinkId
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkId}`)
+    .then(response=>{
+        // console.log(response.data)
+        // res.render('query/results', {drinks: response.data})
+    })
+})
+
 
 
 app.listen(process.env.PORT, ()=> {
