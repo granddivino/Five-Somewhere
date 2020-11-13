@@ -22,22 +22,22 @@ npm i
 ```json
 {
   "development": {
-    "username": "<insert username here",
-    "password": "<insert password here",
+    "username": "<insert username here>",
+    "password": "<insert password here>",
     "database": "<insert develop db name here",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "<insert username here",
-    "password": "<insert password here",
+    "username": "<insert username here>",
+    "password": "<insert password here>",
     "database": "<insert test db name here>",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "<insert username here",
-    "password": "<insert password here",
+    "username": "<insert username here>",
+    "password": "<insert password here>",
     "database": "<insert producation db name here",
     "host": "127.0.0.1",
     "dialect": "postgres"

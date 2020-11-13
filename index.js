@@ -60,7 +60,7 @@ app.get('/homepage/results', (req, res) => {
     })
 })
 
-// show (info about one particular movie)
+// show (info about one particular drink)
 app.get('/:idDrink', (req, res)=>{
     let drinkId = req.params.drinkId
     axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkId}`)

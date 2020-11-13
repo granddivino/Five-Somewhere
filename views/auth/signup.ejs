@@ -1,15 +1,18 @@
 <style>
     .loggedOut {
         border-radius: 10px;
-        background-color: #f2f2f2;
-        padding: 10px;
+        background-color: #eedede;
+        padding: 10px;  
+        width:40%;
     }
-    
+
+
     input[type=email],[type=password],[type=text] {
         text-align: center;
-        width: 25%;
+        width: 40%;
         padding: 12px 20px;
         margin: 8px 0;
+        font-size: 20px;
         display: block;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -17,18 +20,19 @@
     }
 
     input[type=submit] {
-        width: 25%;
+        width: 40%;
         background-color: #0d2f8d;
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
+        font-size: 20px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
 }
 </style>
 
-<h2>Signup</h2>
+<div class ="loginField">
 <form method="POST" action="/auth/signup" class="loggedOut">
     <label for="new-name">Name:</label>
     <input type="text" name="name" id="new-name">
@@ -40,5 +44,5 @@
     <input type="password" name="password" id="new-password">
     
     <input type="submit" value="Sign Up">
-
 </form>
+</div>
