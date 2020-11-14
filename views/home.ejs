@@ -6,12 +6,34 @@
         background-color: #c55757;
         justify-content: center;
     }
+
+    .searchDrink {
+        justify-content: center;
+    }
+
+    form {
+        color: pink;
+        text-align: center;
+    }
+
+    input[type=submit] {
+        font-family: 'Shadows Into Light', cursive;
+        width: 20%;
+        background-color: #743939;
+        color: pink;
+        font-size: 2vw;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 </style>
 
-<h4>Search for Drinks:</h4>
 
-<form action="query/results" method="GET">
-    <label for="drinkFilter">Search Drinks</label>
+
+<h4>What are you thirsty for?</h4>
+
+<form action="query/results" method="GET" id="searchDrink">
     <input type="text" id="drinkFilter" name="drink">
     <input type="submit" value="Search">
 </form>

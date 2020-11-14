@@ -1,20 +1,49 @@
-<h1> Results for Drink Search </h1>
+<style>
+    .dranks {
+        color: pink;
+        text-align: center;
+    }
+
+    .searchResult {
+        color: pink;
+        text-align: center;
+        border-radius: 10px;
+        justify-content: center;
+    }
+
+    .ingredients, .instructions, .drink {
+        background-color: #c55757;
+    }
+
+</style>
+<a href="/">&larr; Back Home</a>
+<div class="searchResult">
+    <h1> Search Results: </h1>
+</div>
 <% results.forEach(function(drink){ %>
-    <li>
-                Drink:
+    <div class="dranks">
+            Drink:
+        <div class="drink">
             <%=drink.strDrink%>
+        </div>
         <br>
             <h2><img src="<%=drink.strDrinkThumb%>" width="300"></h2>
+
         <br>
-            Glass:
-            <%=drink.strGlass%>
-        <br>Ingredients:
-            <%=drink.strIngredients%>
+        
+            Ingredients:
+        <div class="ingredients">
+            <%=drink.strIngredient1%>, <%=drink.strIngredient2%>, <%=drink.strIngredient3%>, <%=drink.strIngredient4%>, <%=drink.strIngredient5%>,
+            <%=drink.strIngredient6%>
+        </div>
         <br>
             Instructions:
+        <div class="instructions">
             <%=drink.strInstructions%>
+        </div>
         <br>
         <br>
+
         <form method="POST" action="favorites/drinks">
             <input type="hidden" name="name" value="<%=drink.strDrink%>">
             <input type="hidden" name="ingredients" value="<%=drink.strIngredients%>">
@@ -25,3 +54,5 @@
         <br>
         <br>
         <% }) %>
+
+    </div>
