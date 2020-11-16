@@ -5,15 +5,21 @@
 <style>
 
     marquee {
-        font-size: 3vw;
-        border-radius: 5px;
         color: pink;
-        background-color: #c55757;
+        font-size: 6vw;
         opacity: 0.9;
     }
 
     #mainheader {
-        width:60%
+        background-color: #c55757;
+        opacity: 0.9;
+        margin-top: 5vw;
+        border: pink;
+        border-style: solid;
+        border-radius: 3vw;
+        width: 75%;
+        margin: auto;
+        margin-top: 4vw;
     }
 
     a {
@@ -29,15 +35,15 @@
     }
 
     #loginButton, #logoutButton {
-     line-height: 40px;
-     width: 150px;
-     font-family: 'Shadows Into Light', cursive;
-     font-size: 3vw;
-     margin-top: 4px;
-     margin-right: 6px;
-     position:absolute;
-     top:0;
-     right:0;
+        line-height: 40px;
+        width: 150px;
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 3vw;
+        margin-top: 4px;
+        margin-right: 6px;
+        position:absolute;
+        top:0;
+        right:0;
     }
 
     #signupButton, #favoritesButton {
@@ -62,16 +68,15 @@
      right:0;
     }
 
-    footer {
-        line-height: 40px;
+    h1 {
+        line-height: 5px;
         width: 300px;
         color: pink;
         font-family: 'Shadows Into Light', cursive;
         font-size: 3vw;
         position:absolute;
-        bottom: 0;
-        right: 0;
-}   
+        top: 0;
+    }   
     
 
 </style>
@@ -81,9 +86,10 @@
     <title>Project 2</title>
 </head>
 <body>
+    <h1>&copy; 2020 Gabriel Go<h1>
     <header>
         <div id= "mainheader">
-            <marquee behavior="scroll" direction="right"><h1>It's 5:00 Somewhere</h1></marquee>
+            <marquee behavior="scroll" direction="right">It's 5:00 Somewhere</marquee>
         </div>
         <nav>
             <ul>
@@ -110,6 +116,5 @@
     </header>
     <%- include('partials/alerts.ejs') %>
     <%- body %>
-    <footer>&copy; 2020 Gabriel Go</footer>
 </body>
 </html>

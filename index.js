@@ -48,32 +48,26 @@ app.get('/', isLoggedIn, (req, res) => {
     res.render('home')
 })
 
-// GET Favorites Page 
-app.get('/favorites/drinks', isLoggedIn, (req, res) => {
-    res.render('favorites/drinks')
-})
-
-
-//GET results from search
+//GET results from search on HOME page and takes you to query/results.ejs
 app.get('/query/results', (req, res) => {
     let drink = req.query.drink
     axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(response => {
         let results = response.data.drinks
         res.render('query/results.ejs', {results: results})
-    // res.render('query/results.ejs', {results: response.data.Search})
     })
 })
 
-// Show query results
-app.get('/:id', (req, res)=>{
-    let drinkId = req.params.drinkId
-    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkId}`)
-    .then(response=>{
-        // console.log(response.data)
-        // res.render('query/results', {drinks: response.data})
-    })
+// GET Favorites Page 
+app.get('/favorites/drinks', isLoggedIn, (req, res) => {
+    res.render('favorites/drinks.ejs')
 })
+
+// GET to main Forum Page 
+app.get('/forum/show', isLoggedIn, (req, res) => {
+    res.render('forum/show.ejs')
+})
+
 
 
 

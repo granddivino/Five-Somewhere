@@ -13,7 +13,12 @@
 
     .ingredients, .instructions, .drink {
         background-color: #c55757;
+        border-radius: 4px;
+        border-color: pink;
+        font-size: 2vw;
+        border-style: solid;
     }
+
 
 </style>
 <a href="/">&larr; Back Home</a>
@@ -24,22 +29,21 @@
     <div class="dranks">
             Drink:
         <div class="drink">
-            <%=drink.strDrink%>
+            <%= drink.strDrink %>
         </div>
         <br>
-            <h2><img src="<%=drink.strDrinkThumb%>" width="300"></h2>
+            <h2><img src="<%= drink.strDrinkThumb %>" width="300"></h2>
 
         <br>
         
             Ingredients:
         <div class="ingredients">
-            <%=drink.strIngredient1%>, <%=drink.strIngredient2%>, <%=drink.strIngredient3%>, <%=drink.strIngredient4%>, <%=drink.strIngredient5%>,
-            <%=drink.strIngredient6%>
+             <%= drink.strIngredient %>
         </div>
         <br>
             Instructions:
         <div class="instructions">
-            <%=drink.strInstructions%>
+            <%= drink.strInstructions %>
         </div>
         <br>
         <br>

@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.forum.belongsTo(models.user)
+      models.forum.hasMany(models.comment)
     }
   };
   forum.init({

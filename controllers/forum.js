@@ -9,10 +9,17 @@ router.post('/', (req, res) => {
 })
 
 
-// GET forum/new - display form for creating new posts
+// GET /forum/new - display form for creating new posts
 router.get('/new', (req, res) => {
+    db.author.findAll()
+    .then((authors) => {
+    res.render('forum/new', {authors: authors})
+    })
+    .catch((error) => {
+    console.log(error)
+        })
+    })
 
-})
 
 
 
