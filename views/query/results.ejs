@@ -38,6 +38,13 @@
 <% results.forEach(function(drink){ %>
     <div class="dranks">
         <div class="eachResult">
+            <form method="POST" action="/favorites">
+                <input type="hidden" name="name" value="<%=drink.strDrink%>">
+                <input type="hidden" name="ingredients" value="<%=drink.strIngredient%>">
+                <input type="hidden" name="instructions" value="<%=drink.strInstructions%>">
+                <input type="hidden"name="picture" value="<%=drink.strDrinkThumb%>">
+                <input type="submit" value="Add to Favorites">
+            </form>
                 <u>Drink:</u>
             <div class="drink">
                 <%= drink.strDrink %>
@@ -52,13 +59,7 @@
                  <%= drink.strInstructions %>
             </div>
         </div>
-        <form method="POST" action="/favorites">
-            <input type="hidden" name="name" value="<%=drink.strDrink%>">
-            <input type="hidden" name="ingredients" value="<%=drink.strIngredients%>">
-            <input type="hidden" name="instructions" value="<%=drink.strInstructions%>">
-            <input type="hidden"name="picture" value="<%=drink.strDrinkThumb%>">
-            <input type="btn" value="Add to Favorites">
-        </form>
+
 
         <% }) %>
     </div>

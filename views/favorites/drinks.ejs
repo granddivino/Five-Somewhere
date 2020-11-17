@@ -10,6 +10,24 @@
         color: pink;
         opacity: 0.9; 
     }
+
+    form {
+        text-align: center;
+    }
+
+    #favorited {
+        background-color: #c55757;
+        border-radius: 7px;
+        border-color: pink;
+        font-size: 2vw;
+        border-style: solid;
+        width: 70%;
+        padding: 10px;
+        margin: auto;
+        color: pink;
+        font-size: 2vw;
+        justify-self: center;
+    }
 </style>
 
 <div class="favoriteDrinks">
@@ -19,34 +37,24 @@
 <a href="/">&larr; Back Home</a>
 
  <%faveDrinks.forEach(function(drink) { %>
-    <p id="ingredients">
+    
+    <form method="POST" action="/favorites/drinks/<%= drink.id%>/?_method=DELETE">
+        <input id="delete" type="submit" value="Delete from Favorites">
+    </form>
+        
+    <p id="favorited">
           <b>Drink:</b>
           <%= drink.name%>
-
+            <br>
           <b>Ingredients:</b>
-          <%= drink.strIngredients1%>
-
+          <%= drink.strIngredient1 %>
+            <br>
           <b>Instructions:</b> 
           <%= drink.instructions%>
-
+            <br>
           <img src="<%= drink.picture%>"width="250">
     </p>
-  
-          <form method="POST" action="/favorites/drinks/<%=drink.id%>/?_method=PUT">
-            <label for="description">Comment</label>
 
-            <textarea id="comment" type="text" name="comment"></textarea>
+ 
 
-            <button id="button" type="submit">Submit</button>
-            <a id="seeComments" href="/comments/show/<%=drink.id%>"> Forum</a>
-          </form>
-          <form method="POST" action="/favorites/drinks/<%=drink.id%>/?_method=DELETE">
-          <br>
-          <input id="delete" type="submit" value="Delete">
-            </form>
-            
-           
-        </p>
         <%})%>
-
-        <br>
