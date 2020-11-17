@@ -55,7 +55,7 @@ router.delete('/drinks', (req, res) => {
         console.log(error)
       })
   })
-//Route to POST comments
+
 
 
 module.exports = router

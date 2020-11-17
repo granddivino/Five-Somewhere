@@ -23,7 +23,6 @@ router.put('/:id', (req, res) => {
       {where: {userId:req.user.id, drinkId:req.params.id}
     })
     .then((newComment) => {
-      console.log(newComment)
       res.redirect(`/comments/show/${req.params.id}`)
     })
     .catch((error) => {

@@ -63,5 +63,6 @@ sequelize db:migrate
 
 ```
 
+
 ```
 7. 
