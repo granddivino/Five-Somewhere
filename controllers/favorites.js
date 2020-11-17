@@ -58,21 +58,6 @@ router.delete('/:id', (req, res) => {
 })
 
 //Route to POST comments
-router.put('/:id', (req, res) => {
-  console.log(req.params)
-  console.log(req.user.id)
-  db.userdrink
-    .update(
-      {comment: req.body.comment},
-      {where: {userId:req.user.id, drinkId:req.params.id}
-    })
-    .then((newComment) => {
-      console.log(newComment)
-      res.redirect(`/comments/show/${req.params.id}`)
-    })
-    .catch((error) => {
-      res.send(error)
-    })
-})
+
 
 module.exports = router

@@ -1,16 +1,60 @@
-<h1>Forum</h1>
+<style>
+    .form-group{    
+        border-radius: 10px;
+        color: pink;
+        background-color: #c55757;
+        padding: 10px;  
+        width: 30%;
+        border-radius: 4px;
+        border-color: pink;
+        border: solid;
+        margin: auto;
+        opacity: 0.9;
+    }
 
-<%= newComments.comment%>
-<br>
+    input[type=text], textarea {
+        font-family: 'Shadows Into Light', cursive;
+        text-align: center;
+        font-size: 25px;
+        display:block;
+        border-radius: 4px;
+        border-color: pink;
+    }
 
-  
-<form method="POST" action="/forum/show/<%=drink.id%>/?_method=PUT">
-    <label for="description">Comment</label>
+    input[type=submit] {
+        font-family: 'Shadows Into Light', cursive;
+        width: 200px; 
+        background-color: #743939;
+        color: pink;
+        font-size: 2vw;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-    <textarea id="comment" type="text" name="comment"></textarea>
 
-    <button id="button" type="submit">Submit</button>
     
-    </form>
+</style>
+
 
 <a href="/">&larr; Back Home</a>
+
+<h1>Forum</h1>
+
+<form action="/comments/show" method="POST">
+
+    <div class="form-group">
+      <label for="subject">Subject:</label>
+      <input type="text" class="form-control" name="subject" required>
+   
+      <label for="content">Comment:</label>
+      <textarea type="text" class="form-control" name="content" required></textarea>
+      
+   <input type="submit" class="btn btn-primary">
+    </div>
+
+</form>
+
+
+
+
