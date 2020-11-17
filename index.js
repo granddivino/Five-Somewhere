@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const ejsLayouts = require('express-ejs-layouts')
+const methodOverride = require('method-override')
 const axios = require('axios')
 const session = require('express-session')
 const passport = require('./config/ppConfig.js')
@@ -26,6 +27,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+
+//Method-override middleware
+app.use(methodOverride('_method'))
 //Flash middleware
 app.use(flash())
 
@@ -40,7 +44,8 @@ app.use((req, res, next) => {
 
 //Use Controllers
 app.use('/auth', require('./controllers/auth.js'))
-app.use('/forum', require('./controllers/forum.js'))
+app.use('/comments', require('./controllers/comments.js'))
+app.use('/favorites', require('./controllers/favorites.js'))
 
 
 // GET Home Page 
@@ -55,6 +60,7 @@ app.get('/query/results', (req, res) => {
     .then(response => {
         let results = response.data.drinks
         res.render('query/results.ejs', {results: results})
+        // console.log(response.data)
     })
 })
 
@@ -64,8 +70,8 @@ app.get('/favorites/drinks', isLoggedIn, (req, res) => {
 })
 
 // GET to main Forum Page 
-app.get('/forum/show', isLoggedIn, (req, res) => {
-    res.render('forum/show.ejs')
+app.get('/comments/show', isLoggedIn, (req, res) => {
+    res.render('comments/show.ejs')
 })
 
 

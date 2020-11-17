@@ -8,11 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      drinks: {
+      name: {
         type: Sequelize.STRING
       },
       ingredients: {
         type: Sequelize.STRING
+      },
+      instructions: {
+        type: Sequelize.TEXT
+      },
+      picture: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

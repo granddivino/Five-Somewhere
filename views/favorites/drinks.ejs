@@ -15,5 +15,38 @@
 <div class="favoriteDrinks">
 <h2><%= currentUser.name %>'s Favorite Drinks</h2>
 </div>
+
 <a href="/">&larr; Back Home</a>
 
+ <%faveDrinks.forEach(function(drink) { %>
+    <p id="ingredients">
+          <b>Drink:</b>
+          <%= drink.name%>
+
+          <b>Ingredients:</b>
+          <%= drink.strIngredients1%>
+
+          <b>Instructions:</b> 
+          <%= drink.instructions%>
+
+          <img src="<%= drink.picture%>"width="250">
+    </p>
+  
+          <form method="POST" action="/favorites/drinks/<%=drink.id%>/?_method=PUT">
+            <label for="description">Comment</label>
+
+            <textarea id="comment" type="text" name="comment"></textarea>
+
+            <button id="button" type="submit">Submit</button>
+            <a id="seeComments" href="/comments/show/<%=drink.id%>"> Forum</a>
+          </form>
+          <form method="POST" action="/favorites/drinks/<%=drink.id%>/?_method=DELETE">
+          <br>
+          <input id="delete" type="submit" value="Delete">
+            </form>
+            
+           
+        </p>
+        <%})%>
+
+        <br>

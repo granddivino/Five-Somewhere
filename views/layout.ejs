@@ -16,7 +16,7 @@
         margin-top: 5vw;
         border: pink;
         border-style: solid;
-        border-radius: 3vw;
+        border-radius: 5vw;
         width: 75%;
         margin: auto;
         margin-top: 4vw;
@@ -35,15 +35,15 @@
     }
 
     #loginButton, #logoutButton {
-        line-height: 40px;
-        width: 150px;
-        font-family: 'Shadows Into Light', cursive;
-        font-size: 3vw;
-        margin-top: 4px;
-        margin-right: 6px;
-        position:absolute;
-        top:0;
-        right:0;
+     line-height: 40px;
+     width: 150px;
+     font-family: 'Shadows Into Light', cursive;
+     font-size: 3vw;
+     margin-top: 4px;
+     margin-right: 6px;
+     position: absolute;
+     top:0;
+     right:0;
     }
 
     #signupButton, #favoritesButton {
@@ -74,10 +74,11 @@
         color: pink;
         font-family: 'Shadows Into Light', cursive;
         font-size: 3vw;
-        position:absolute;
+  
         top: 0;
-    }   
-    
+    }
+
+
 
 </style>
 <head>
@@ -86,7 +87,7 @@
     <title>Project 2</title>
 </head>
 <body>
-    <h1>&copy; 2020 Gabriel Go<h1>
+    <h1>&copy; 2020 Gabriel Go<h1></h1>
     <header>
         <div id= "mainheader">
             <marquee behavior="scroll" direction="right">It's 5:00 Somewhere</marquee>
@@ -108,13 +109,15 @@
                         <a href="/favorites/drinks">Favorites</a>
                     </div>
                     <div id="forumButton">
-                        <a href="/forum/show">Forum</a>
+                        <a href="/comments/show">Forum</a>
                     </div>
                 <% } %>
+
             </ul>
         </nav>
     </header>
     <%- include('partials/alerts.ejs') %>
     <%- body %>
+
 </body>
 </html>
