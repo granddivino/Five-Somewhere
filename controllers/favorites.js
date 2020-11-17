@@ -30,15 +30,14 @@ router.post('/', (req, res) => {
 })
 
 //Route to GET drinks associated with user
-router.get('/', (req, res) => {
-  console.log(req.session)
+router.get('/drinks', (req, res) => {
   db.user
     .findOne({
       where: {id: req.user.id},
       include: [db.drink],
     })
     .then((foundUser) => {
-      res.render('/favorites/drinks', {faveDrinks: foundUser.drinks})
+      res.render('favorites/drinks', {faveDrinks: foundUser.drinks})
       console.log(foundUser.drinks)
     })
 })
@@ -53,8 +52,8 @@ router.delete('/:id', (req, res) => {
       console.log(numRowsDeleted)
       res.redirect('/favorites/drinks')
     })
-    .catch((err) => {
-      res.send(err)
+    .catch((error) => {
+      res.send(error)
     })
 })
 
@@ -71,8 +70,8 @@ router.put('/:id', (req, res) => {
       console.log(newComment)
       res.redirect(`/comments/show/${req.params.id}`)
     })
-    .catch((err) => {
-      res.send(err)
+    .catch((error) => {
+      res.send(error)
     })
 })
 

@@ -1,3 +1,18 @@
+<style>
+    .alert {
+        color: pink;
+        text-align: center;
+        border-radius: 10px;
+        text-align: center;
+        background: white;
+        width:40%;
+        opacity: 0.9;
+        margin: auto;
+    }
+
+</style>
+
+<div class="alert">
 <% if (alerts.error) { %>
     <% alerts.error.forEach(msg => { %>
       <%= msg %>
@@ -9,3 +24,4 @@
         <%= msg %>
     <% }) %>
 <% } %>
+</div>

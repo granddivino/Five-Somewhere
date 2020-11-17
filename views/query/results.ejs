@@ -52,12 +52,12 @@
                  <%= drink.strInstructions %>
             </div>
         </div>
-        <form method="POST" action="favorites/drinks">
+        <form method="POST" action="/favorites">
             <input type="hidden" name="name" value="<%=drink.strDrink%>">
             <input type="hidden" name="ingredients" value="<%=drink.strIngredients%>">
             <input type="hidden" name="instructions" value="<%=drink.strInstructions%>">
             <input type="hidden"name="picture" value="<%=drink.strDrinkThumb%>">
-            <input type="hidden" value="Add to Favorites">
+            <input type="btn" value="Add to Favorites">
         </form>
 
         <% }) %>
