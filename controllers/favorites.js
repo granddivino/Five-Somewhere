@@ -46,11 +46,11 @@ router.get('/drinks', (req, res) => {
 router.delete('/:id', (req, res) => {
   db.drink
     .destroy({
-      where: {id:req.params.id},
+      where: {id: req.params.id},
     })
-    .then((numRowsDeleted) => {
-      console.log(numRowsDeleted)
-      res.redirect('/favorites/drinks')
+    .then((deleted) => {
+      console.log(deleted)
+      res.redirect('favorites/drinks')
     })
     .catch((error) => {
       res.send(error)
