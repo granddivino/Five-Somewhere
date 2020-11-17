@@ -2,7 +2,7 @@
     h2 {
         color:pink;
         text-align: center;
-        border: solid pink 4px;
+        border: solid pink
     }
     .favoriteDrinks {
         font-size: 3vw;
@@ -39,7 +39,8 @@
 
  <%faveDrinks.forEach(function(drink) { %>
     
-    <form method="POST" action="/favorites/drinks/<%= drink.id%>/?_method=DELETE">
+    <form method="POST" action="/favorites/drinks/?_method=DELETE">
+        <input id="hidden" type="hidden" value="<%=drink.id%>" name="id">
         <input id="delete" type="submit" value="Delete from Favorites">
     </form>
         

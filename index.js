@@ -30,6 +30,7 @@ app.use(passport.session())
 
 //Method-override middleware
 app.use(methodOverride('_method'))
+
 //Flash middleware
 app.use(flash())
 
@@ -64,10 +65,6 @@ app.get('/query/results', (req, res) => {
     })
 })
 
-// GET Favorites Page 
-app.get('/favorites/drinks', isLoggedIn, (req, res) => {
-    res.render('favorites/drinks.ejs')
-})
 
 // GET to main Forum Page 
 app.get('/comments/show', isLoggedIn, (req, res) => {

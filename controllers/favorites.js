@@ -38,25 +38,23 @@ router.get('/drinks', (req, res) => {
     })
     .then((foundUser) => {
       res.render('favorites/drinks', {faveDrinks: foundUser.drinks})
-      console.log(foundUser.drinks)
     })
 })
 
 //DELETE a drink from favorites
-router.delete('/:id', (req, res) => {
-  db.drink
-    .destroy({
-      where: {id: req.params.id},
-    })
-    .then((deleted) => {
-      console.log(deleted)
-      res.redirect('favorites/drinks')
-    })
-    .catch((error) => {
-      res.send(error)
-    })
-})
-
+router.delete('/drinks', (req, res) => {
+    db.drink
+      .destroy({
+        where: {id: req.body.id},
+      })
+      .then((deleted) => {
+        console.log(deleted)
+        res.redirect('/favorites/drinks')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  })
 //Route to POST comments
 
 
