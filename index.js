@@ -63,13 +63,18 @@ app.get('/query/results', isLoggedIn, (req, res) => {
         res.render('query/results.ejs', {results: results})
         // console.log(response.data)
     })
-})
+    .catch((error) => {
+        console.log(error)
+        res.status(400).render('404.ejs')
+      })
+    })
 
 
 // GET to main Forum Page 
 app.get('/comments/show', isLoggedIn, (req, res) => {
     res.render('comments/show.ejs')
 })
+
 
 
 

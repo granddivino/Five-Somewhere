@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn')
 
-//Route to get to forums
+//Route to GET to forum
 router.get('show', isLoggedIn, (req, res) => {
   db.userdrink
     .findOne({
@@ -12,9 +12,14 @@ router.get('show', isLoggedIn, (req, res) => {
     .then((foundComment) => {
       res.render('comments/show', {newComments: foundComment.dataValues})
     })
-})
+    .catch((error) => {
+      console.log(error)
+      res.status(400).render('404.ejs')
+    })
+  })
 
-//Route to post comments
+
+//Route to POST comments
 router.put('/:id', isLoggedIn, (req, res) => {
   console.log(req.params)
   console.log(req.user.id)
@@ -27,9 +32,10 @@ router.put('/:id', isLoggedIn, (req, res) => {
       res.redirect(`/comments/show/${req.params.id}`)
     })
     .catch((error) => {
-      res.send(error)
+      console.log(error)
+      res.status(400).render('404.ejs')
     })
-})
+  })
 
 
 

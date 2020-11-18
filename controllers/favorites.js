@@ -25,8 +25,9 @@ router.post('/', isLoggedIn, (req, res) => {
     })
     .catch((error) => {
       console.log(error)
+      res.status(400).render('404.ejs')
     })
-})
+  })
 
 //Route to GET drinks associated with user
 router.get('/drinks', isLoggedIn, (req, res) => {
@@ -38,7 +39,11 @@ router.get('/drinks', isLoggedIn, (req, res) => {
     .then((foundUser) => {
       res.render('favorites/drinks', {faveDrinks: foundUser.drinks})
     })
-})
+    .catch((error) => {
+      console.log(error)
+      res.status(400).render('404.ejs')
+    })
+  })
 
 //DELETE a drink from favorites
 router.delete('/drinks', isLoggedIn, (req, res) => {
@@ -53,7 +58,11 @@ router.delete('/drinks', isLoggedIn, (req, res) => {
       .catch((error) => {
         console.log(error)
       })
-  })
+      .catch((error) => {
+        console.log(error)
+        res.status(400).render('404.ejs')
+      })
+    })
 
 
 
