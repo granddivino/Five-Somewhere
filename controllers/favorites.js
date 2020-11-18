@@ -2,11 +2,10 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../models')
-
-
+const isLoggedIn = require('../middleware/isLoggedIn')
 
 //Route to POST to favorites page
-router.post('/', (req, res) => {
+router.post('/', isLoggedIn, (req, res) => {
   console.log(req.body)
   db.drink
     .findOrCreate({
@@ -30,7 +29,7 @@ router.post('/', (req, res) => {
 })
 
 //Route to GET drinks associated with user
-router.get('/drinks', (req, res) => {
+router.get('/drinks', isLoggedIn, (req, res) => {
   db.user
     .findOne({
       where: {id: req.user.id},
@@ -42,7 +41,7 @@ router.get('/drinks', (req, res) => {
 })
 
 //DELETE a drink from favorites
-router.delete('/drinks', (req, res) => {
+router.delete('/drinks', isLoggedIn, (req, res) => {
     db.drink
       .destroy({
         where: {id: req.body.id},
