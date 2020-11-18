@@ -55,7 +55,7 @@ app.get('/', isLoggedIn, (req, res) => {
 })
 
 //GET results from search on HOME page and takes you to query/results.ejs
-app.get('/query/results', (req, res) => {
+app.get('/query/results', isLoggedIn, (req, res) => {
     let drink = req.query.drink
     axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(response => {

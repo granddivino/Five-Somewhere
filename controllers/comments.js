@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const db = require('../models');
+const isLoggedIn = require('../middleware/isLoggedIn')
 
 //Route to get to forums
-router.get('show', (req, res) => {
+router.get('show', isLoggedIn, (req, res) => {
   db.userdrink
     .findOne({
       where: {userId: req.user.id, drinkId: req.params.drinkId},
@@ -14,7 +15,7 @@ router.get('show', (req, res) => {
 })
 
 //Route to post comments
-router.put('/:id', (req, res) => {
+router.put('/:id', isLoggedIn, (req, res) => {
   console.log(req.params)
   console.log(req.user.id)
   db.userdrink
