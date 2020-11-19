@@ -79,6 +79,4 @@ app.get('/comments/show', isLoggedIn, (req, res) => {
 
 
 
-app.listen(process.env.PORT, ()=> {
-    console.log('Port 8000')
-})
+app.listen(process.env.PORT || 8000)
