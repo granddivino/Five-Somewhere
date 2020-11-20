@@ -43,16 +43,18 @@ app.use((req, res, next) => {
     next() //Move on to the next piece of middleware
 })
 
+
+// GET Home Page 
+app.get('/', isLoggedIn, (req, res) => {
+    res.render('home')
+})
+
 //Use Controllers
 app.use('/auth', require('./controllers/auth.js'))
 app.use('/comments', require('./controllers/comments.js'))
 app.use('/favorites', require('./controllers/favorites.js'))
 
 
-// GET Home Page 
-app.get('/', isLoggedIn, (req, res) => {
-    res.render('home')
-})
 
 //GET results from search on HOME page and takes you to query/results.ejs
 app.get('/query/results', isLoggedIn, (req, res) => {
@@ -68,15 +70,6 @@ app.get('/query/results', isLoggedIn, (req, res) => {
         res.status(400).render('404.ejs')
       })
     })
-
-
-// GET to main Forum Page 
-app.get('/comments/show', isLoggedIn, (req, res) => {
-    res.render('comments/show.ejs')
-})
-
-
-
 
 
 app.listen(process.env.PORT || 8000)

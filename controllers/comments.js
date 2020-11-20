@@ -3,14 +3,21 @@ const router = express.Router();
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn')
 
-//Route to GET to forum
+
+// GET to main Forum Page 
+router.get('/show', isLoggedIn, (req, res) => {
+  res.render('comments/show.ejs')
+})
+
+
+// Route to GET to forum
 router.get('show', isLoggedIn, (req, res) => {
   db.userdrink
     .findOne({
       where: {userId: req.user.id, drinkId: req.params.drinkId},
     })
     .then((foundComment) => {
-      res.render('comments/show', {newComments: foundComment.dataValues})
+      res.render('show', {newComments: foundComment.dataValues})
     })
     .catch((error) => {
       console.log(error)
@@ -20,16 +27,17 @@ router.get('show', isLoggedIn, (req, res) => {
 
 
 //Route to POST comments
-router.put('/:id', isLoggedIn, (req, res) => {
-  console.log(req.params)
+router.post('/add', isLoggedIn, (req, res) => {
+  console.log('@@@@@@@@@@@@@@@@@@@@@@@-params', req.params)
   console.log(req.user.id)
   db.userdrink
     .update(
       {comment: req.body.comment},
-      {where: {userId:req.user.id, drinkId:req.params.id}
+      {where: {userId:req.user.id}
     })
     .then((newComment) => {
-      res.redirect(`/comments/show/${req.params.id}`)
+      console.log('@@@@@@@@@@@@@@@@@@@@@@@-newComment', newComment)
+      res.redirect('/comments/show')
     })
     .catch((error) => {
       console.log(error)
